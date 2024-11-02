@@ -245,7 +245,7 @@ def timer(session_type, duration_minutes, auto_break=True):
                     console.print(":pile_of_poo:"*poo_pile)
                     message = "Maybe you should be working? Please make it be the last one... How many minutes? "
                 else:
-                    poo_pile *= poo_pile
+                    poo_pile *= 2
                     console.print("[red]You are HOPELESS.[/red]")
                     console.print(":pile_of_poo:"*poo_pile)
 
