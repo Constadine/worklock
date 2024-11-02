@@ -79,7 +79,7 @@ Once installed, you can run Worklock in a few ways:
 ```bash
     cd /path/to/your_project_directory
     source venv/bin/activate
-    python work_tracker.py
+    python worklock.py
 ```
 ## Shortcut and Dock Access
 ##### Creating a Desktop Shortcut Manually
