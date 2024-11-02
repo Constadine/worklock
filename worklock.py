@@ -30,7 +30,11 @@ def send_notification(title, message, sound_source='system', sound_id=None):
         if sound_id and sound_source == 'system':
             subprocess.run(["canberra-gtk-play", "--id", sound_id])
         elif sound_id and sound_source == 'file':
-            subprocess.run(["canberra-gtk-play", "--file", sound_id])
+          # Get the absolute path to the sound file
+            base_dir = os.path.dirname(os.path.abspath(__file__))  # Directory where the script is located
+            sound_path = os.path.join(base_dir, sound_id)  # Absolute path to the sound file
+      
+            subprocess.run(["canberra-gtk-play", "--file", sound_path])
     except Exception as e:
         console.print(f"[red]Error sending notification: {e}[/red]")
 
@@ -173,7 +177,7 @@ def timer(session_type, duration_minutes, auto_break=True):
     if session_type.lower() == "break":
         display_funfact()
     
-    duration_seconds = duration_minutes * 60  # Corrected multiplication
+    duration_seconds = duration_minutes * 1  # Corrected multiplication
     end_time = datetime.now() + timedelta(seconds=duration_seconds)
     start_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     end_time_str = ""
@@ -201,7 +205,7 @@ def timer(session_type, duration_minutes, auto_break=True):
 
     # Send notification with a different sound based on session type
     if session_type.lower() == "work":
-        sound_id = "sounds/bell.wav"
+        sound_id = "sounds/happy-bell.wav"
         send_notification(
             f"{session_type} Session Completed",
             f"Alright! Nice one. Time to rest bro.",
