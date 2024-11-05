@@ -1,11 +1,10 @@
 import os
 from datetime import datetime, timedelta
+from settings.config import Settings
 
-# from dotenv import load_dotenv
-# SESSION_LOG_FILE = load_dotenv()
-
-SESSION_LOG_FILE = "session_logs.txt"
-DAILY_TOTALS_FILE = "daily_totals.txt"
+settings = Settings()
+SESSION_LOG_FILE = settings.session_log_file
+DAILY_TOTALS_FILE = settings.daily_totals_file
 
 def log_session(session_type, start_time, end_time, duration):
     """Logs each session to SESSION_LOG_FILE."""

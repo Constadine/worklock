@@ -8,8 +8,12 @@ import time
 import sys
 from sessions.log_manager import calculate_daily_totals
 from notifications.notification import send_notification
+from settings.config import Settings
+
 
 console = Console()
+settings = Settings()
+flavor = settings.get_current_flavor()
 
 def timer(session_type, duration_minutes, auto_break=True):
     """Manages the countdown timer for sessions."""
@@ -17,7 +21,7 @@ def timer(session_type, duration_minutes, auto_break=True):
     if session_type.lower() == "break":
         display_funfact()
     
-    duration_seconds = duration_minutes * 60  # Corrected multiplication
+    duration_seconds = duration_minutes * 1  # Corrected multiplication
     end_time = datetime.now() + timedelta(seconds=duration_seconds)
     start_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     end_time_str = ""
@@ -45,11 +49,11 @@ def timer(session_type, duration_minutes, auto_break=True):
 
     # Send notification with a different sound based on session type
     if session_type.lower() == "work":
-        sound_id = "message-new-instant"
+        sound_id = flavor.break_sound
         send_notification(
             f"{session_type} Session Completed",
-            f"Alright! Nice one. Time to rest bro.",
-            # sound_source='file',
+            f"Alright! Nice one. Time to rest! {flavor.emoji}",
+            sound_source='file',
             sound_id=sound_id
         )
 
@@ -119,11 +123,3 @@ def start_break():
     send_notification("Break Session Started", f"You have started a {duration}-minute break session.")
     timer("Break", duration)
 
-
-def save_and_exit():
-    """Saves daily totals and exits the program."""
-    console.print("[bold blue]Saving daily totals...[/bold blue]")
-    calculate_daily_totals()
-    console.print("[bold green]Daily totals saved successfully.[/bold green]")
-    console.print("[bold red]Exiting the Work-Break Tracker. Stay productive![/bold red]")
-    sys.exit()

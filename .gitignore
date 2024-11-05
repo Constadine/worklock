@@ -1,0 +1,10 @@
+
+*.pyc
+*.pyi
+/venv
+/venv
+*.txt
+*.pyc
+sessions/__pycache__/session.cpython-312.pyc
+sessions/__pycache__/log_manager.cpython-312.pyc
+/venv
