@@ -1,0 +1,27 @@
+{
+    "aurane": {
+        "work_duration": 25,
+        "break_duration": 5,
+        "emoji": "🍅",
+        "break_sound": "happy-bell.wav"
+    },
+    "maria": {
+        "work_duration": 20,
+        "break_duration": 10,
+        "emoji": "🍕",
+        "break_sound": "relaxed_break.wav"
+    },
+    "alkiku": {
+        "work_duration" : 50,
+        "break_duration" : 10,
+        "emoji" : "🧑🏿‍🦲",
+        "break_sound" : "intense_break.wav"
+
+    },
+    "julie": {
+        "work_duration": 20,
+        "break_duration": 10,
+        "emoji":"🍫",
+        "break_sound": "relaxed_break.wav"
+    }
+}

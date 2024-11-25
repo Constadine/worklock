@@ -68,7 +68,7 @@ def timer(session_type, duration_minutes, auto_break=True):
     console.print(f"\n[bold green]{session_type} session completed![/bold green]")
     
     if session_type.lower() == "work" and auto_break:
-        break_duration = IntPrompt.ask("Enter break duration in minutes", default=5)
+        break_duration = IntPrompt.ask("Enter break duration in minutes", default=flavor.break_duration)
         console.print(f"\n[bold blue]Starting break session for {break_duration} minutes...[/bold blue]")
         send_notification("Break Session Started", f"Your break session has started for {break_duration} minutes.")
         timer("Break", break_duration, auto_break=False)
@@ -111,14 +111,14 @@ def timer(session_type, duration_minutes, auto_break=True):
 
 def start_work():
     """Starts a work session."""
-    duration = IntPrompt.ask("Enter work duration in minutes", default=25)
+    duration = IntPrompt.ask("Enter work duration in minutes", default=flavor.work_duration)
     console.print(f"\n[bold blue]Starting Work Session for {duration} minutes...[/bold blue]")
     send_notification("Work Session Started", f"You have started a {duration}-minute work session.")
     timer("Work", duration)
 
 def start_break():
     """Starts a break session."""
-    duration = IntPrompt.ask("Enter break duration in minutes", default=5)
+    duration = IntPrompt.ask("Enter break duration in minutes", default=flavor.break_duration)
     console.print(f"\n[bold blue]Starting Break Session for {duration} minutes...[/bold blue]")
     send_notification("Break Session Started", f"You have started a {duration}-minute break session.")
     timer("Break", duration)

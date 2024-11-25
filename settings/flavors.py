@@ -18,26 +18,34 @@ class Flavor(ABC):
 
 
 # Define each flavor class, inheriting from Flavor
-class Standard(Flavor):
+class Aurane(Flavor):
     def __init__(self):
         super().__init__()
         self.work_duration = 25
         self.break_duration = 5
-        self.emoji = "💪"
+        self.emoji = "🍅"
         self.break_sound: str = "happy-bell.wav"
 
-class Intense(Flavor):
-    def __init__(self):
-        super().__init__()
-        self.work_duration = 50
-        self.break_duration = 10
-        self.emoji = "🔥"
-        self.break_sound = "intense_break.wav"
-
-class Relaxed(Flavor):
+class Maria(Flavor):
     def __init__(self):
         super().__init__()
         self.work_duration = 20
         self.break_duration = 10
-        self.emoji = "🌴"
+        self.emoji = "🍕"
+        self.break_sound = "relaxed_break.wav"
+
+class Alkiku(Flavor):
+    def __init__(self):
+        super().__init__()
+        self.work_duration = 50
+        self.break_duration = 10
+        self.emoji = "🧑🏿‍🦲"
+        self.break_sound = "intense_break.wav"
+
+class Julie(Flavor):
+    def __init__(self):
+        super().__init__()
+        self.work_duration = 20
+        self.break_duration = 10
+        self.emoji = "🍫"
         self.break_sound = "relaxed_break.wav"

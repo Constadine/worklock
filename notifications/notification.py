@@ -15,7 +15,6 @@ def send_notification(title, message, sound_source='system', sound_id=None):
             subprocess.run(["canberra-gtk-play", "--id", sound_id])
         elif sound_id and sound_source == 'file':
             sound_path = os.path.join(settings.sounds_dir, sound_id)
-            print(sound_path)
             subprocess.run(["canberra-gtk-play", "--file", sound_path])
     except Exception as e:
         console.print(f"[red]Error sending notification: {e}[/red]")

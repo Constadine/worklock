@@ -11,7 +11,7 @@ class Settings:
         self.daily_totals_file = os.path.join(self.base_dir, "daily_totals.txt")
         self.default_work_duration = 25
         self.default_break_duration = 5
-        self.current_flavor = "standard"
+        self.current_flavor = "aurane"
         self.flavors = {
             name: flavor_class()
             for name, flavor_class in Flavor.flavors.items()

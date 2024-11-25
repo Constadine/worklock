@@ -119,7 +119,7 @@ def settings_menu():
         table.add_row("4", "Back to Main Menu")
         console.print(table)
 
-        choice = Prompt.ask("Select an option", choices=["1", "2", "3", "4"])
+        choice = Prompt.ask("Select an option", choices=["1", "2", "3", "4"], default=4)
 
         if choice == "1":
             view_flavors()
